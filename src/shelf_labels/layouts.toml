@@ -1,0 +1,50 @@
+# Label geometry in millimetres.
+#
+# Sheet layouts (with `page`) are for office printers: PDF output fills the sheet
+# left to right, top to bottom. Layouts without `page` are single labels on a roll:
+# PDF output puts one label on each page, and ZPL output uses `dpi`.
+
+[avery-5160]
+# US Letter, 30 labels, 2.625 x 1 in
+page = "letter"
+columns = 3
+rows = 10
+label_width = 66.675
+label_height = 25.4
+margin_left = 4.7625
+margin_top = 12.7
+gap_x = 3.175
+
+[avery-5163]
+# US Letter, 10 labels, 4 x 2 in
+page = "letter"
+columns = 2
+rows = 5
+label_width = 101.6
+label_height = 50.8
+margin_left = 3.96875
+margin_top = 12.7
+gap_x = 4.7625
+
+[avery-l7160]
+# A4, 21 labels, 63.5 x 38.1 mm
+page = "a4"
+columns = 3
+rows = 7
+label_width = 63.5
+label_height = 38.1
+margin_left = 7.21
+margin_top = 15.15
+gap_x = 2.54
+
+[zebra-2x1]
+# 2 x 1 in thermal roll
+label_width = 50.8
+label_height = 25.4
+dpi = 203
+
+[zebra-4x2]
+# 4 x 2 in thermal roll
+label_width = 101.6
+label_height = 50.8
+dpi = 203
