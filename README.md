@@ -1,5 +1,8 @@
 # shelf-labels
 
+[![CI](https://github.com/akincenk/shelf-labels/actions/workflows/ci.yml/badge.svg)](https://github.com/akincenk/shelf-labels/actions/workflows/ci.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/akincenk/shelf-labels/badge)](https://scorecard.dev/viewer/?uri=github.com/akincenk/shelf-labels)
+
 Turn a CSV of SKUs or shelf locations into barcode labels: Code 128 or QR, as a print-ready PDF for office label sheets (Avery and similar) or as ZPL for Zebra thermal printers.
 
 It is meant for small warehouses and stockrooms that need to label bins, shelves and products without a label design program. The labels are made to be scanned by [stock-count](https://github.com/akincenk/stock-count), a phone app for cycle counts that syncs to [Warehouse-inventory-api](https://github.com/akincenk/Warehouse-inventory-api), but any Code 128 or QR scanner reads them.
