@@ -49,6 +49,15 @@ Options for `pdf` and `zpl`:
 | `--text-column NAME` | optional column printed as a second line, cut with `...` if too long |
 | `--barcode code128\|qr` | symbology (default `code128`) |
 | `--config FILE` | TOML file with your own layouts |
+| `--strict` | stop with exit 1 and write nothing if there are warnings |
+
+Rows where every cell is empty (common at the end of a spreadsheet export) are skipped. A code that appears on more than one row is still printed each time, but each repeat is reported with both line numbers. Both cases are printed as warnings on stderr and counted in the summary line:
+
+```text
+shelf-labels: warning: stock.csv, line 49: code 'WID-0042' already on line 47
+shelf-labels: warning: stock.csv, line 52: blank row skipped
+wrote 50 labels on 2 page(s) to labels.pdf, 1 blank row(s) skipped, 1 duplicate code(s)
+```
 
 Send a ZPL file to a networked Zebra printer with, for example, `nc printer-host 9100 < labels.zpl`.
 

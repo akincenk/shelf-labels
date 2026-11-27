@@ -47,3 +47,19 @@ def test_check_code_rejects(code):
 @pytest.mark.parametrize("code", ["A", "x" * 64, "A-01/02 B", "^XZ~_"])
 def test_check_code_accepts(code):
     assert check_code(code) == code
+
+
+def test_blank_rows_skipped_and_duplicates_reported(tmp_path):
+    p = write(tmp_path, "sku,name\nA-01,x\n,\n , \nB-02,y\nA-01,again\n,,extra\n")
+    warnings = []
+    with pytest.raises(ValueError, match="line 7: code must be 1-64"):
+        read_labels(p, warnings=warnings)
+    p = write(tmp_path, "sku,name\nA-01,x\n,\n , \nB-02,y\nA-01,again\n")
+    warnings = []
+    assert read_labels(p, warnings=warnings) == [Label("A-01"), Label("B-02"), Label("A-01")]
+    assert warnings == [
+        f"{p}, line 3: blank row skipped",
+        f"{p}, line 4: blank row skipped",
+        f"{p}, line 6: code 'A-01' already on line 2",
+    ]
+    assert read_labels(p) == [Label("A-01"), Label("B-02"), Label("A-01")]  # no list given: still works

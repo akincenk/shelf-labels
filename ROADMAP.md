@@ -38,7 +38,7 @@ A label style for aisles and rack beams: the location code in large type, option
 
 `shelf-labels calibrate --layout NAME` prints the label outlines and a ruler so a user can see how far their printer shifts the sheet, then `--offset-x / --offset-y` in mm corrects it. Offsets can also be stored per layout in the TOML file.
 
-## 10. Duplicate and summary report (1 h)
+## 10. Duplicate and summary report (1 h, done in #10)
 
 Warn when the same code appears twice in the CSV, and print a short summary (labels, pages, skipped rows). `--strict` turns warnings into errors.
 
