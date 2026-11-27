@@ -106,7 +106,7 @@ ruff check . && ruff format --check .
 pytest -q
 ```
 
-See [ROADMAP.md](ROADMAP.md) for planned work.
+See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request, and [ROADMAP.md](ROADMAP.md) for planned work.
 
 ## License
 
